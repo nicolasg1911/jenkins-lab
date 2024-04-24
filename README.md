@@ -1,23 +1,32 @@
 # Jenkins Lab
 
-## Ejecutar Docker Compose
+## yml file
+Firts of all, we look up for the docker-compose.yml file and set up the next code:
 
-Para ejecutar Docker Compose, asegúrate de que tengas Docker Compose instalado en tu sistema. Luego, sigue estos pasos:
+<img src="images/yml.png"><br>
 
-1. Navega a la ubicación donde se encuentra tu archivo `docker-compose.yml`.
+I opened the port 3000 cause the node feature uses that port and created a volume for persistency. <br>
 
-2. Ejecuta el siguiente comando en tu terminal para iniciar los contenedores definidos en el archivo `docker-compose.yml`:
+After that, I used the ```docker-compuse up -d``` command to deploy the container with docker compose and the ```docker exec id_container cat /var/jenkins_home/secrets/initialAdminPassword``` to get the jenkins key
+<img src="images/composeup.jpg"><br>
 
-```bash
-docker-compose up -d
-```
+Next, I chosed credentials for my jenkins and the url:
+<img src="images/credentials.jpg"><br>
+<img src="images/url.jpg"><br>
 
-3. Extraer passwords
+Then I choose the Nodejs feature for jenkins and hit start jenkins: 
+<img src="images/jenkinsconf.jpg"><br>
 
-```bash
-docker logs id_container
-```
+Now that I had jenkins, I got in the "Administrat Jenkins" field and clicked on tools:
+<img src="images/tools.jpg"><br>
 
-```bash
-docker exec id_container cat /var/jenkins_home/secrets/initialAdminPassword
-```
+In tools, I created a "proyecto estilo libre":
+<img src="images/freeproyect.jpg"><br>
+
+Also added my github repository, Node and npm:
+<img src="images/git.jpg"><br>
+<img src="images/node.jpg"><br>
+
+Finally I got the proyect in my main page and proceeded to execute it:
+<img src="images/pipeline.jpg"><br>
+<img src="images/working.jpg"><br>
